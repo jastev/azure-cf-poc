@@ -1,6 +1,6 @@
 # https://www.virtualbox.org/wiki/Linux_Downloads
 
-function install_virtualbox() {
+function virtualbox_install() {
   echo "deb https://download.virtualbox.org/virtualbox/debian xenial contrib" | sudo tee /etc/apt/sources.list
   wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
   sudo apt-get update
