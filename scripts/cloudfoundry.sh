@@ -4,7 +4,7 @@ CLOUDFOUNDRY_REPO=https://github.com/cloudfoundry/cf-deployment
 
 function cloudfoundry_install() {
   pushd .
-  sudo mkdir -p $1/cf-deployment
+  mkdir -p $1/cf-deployment
   git clone $CLOUDFOUNDRY_REPO $1/cf-deployment
   cd $1/cf-deployment
 
