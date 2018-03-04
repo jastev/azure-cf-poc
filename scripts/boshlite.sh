@@ -3,7 +3,7 @@
 BOSHLITE_REPO=https://github.com/cloudfoundry/bosh-deployment
 
 function install_boshlite() {
-  apt-get install -y ruby
+  sudo apt-get install -y ruby
 
   mkdir -p $1/bosh-deployment
   git clone $BOSHLITE_REPO $1/bosh-deployment
