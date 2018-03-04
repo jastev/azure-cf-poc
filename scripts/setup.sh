@@ -8,7 +8,7 @@ source virtualbox.sh
 virtualbox_install
 
 source boshcli.sh
-bosh2cli_install
+boshcli_install
 
 source boshlite.sh
 boshlite_install $WORKSPACE_PATH $BOSH_DEPLOYMENTS_PATH $BOSH_ENV
