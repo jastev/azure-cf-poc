@@ -59,7 +59,8 @@
     },
     "variables": {
         "vnetId": "[resourceId('exportrg','Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "extensionFileUriBase": "https://raw.githubusercontent.com/jastev/azure-cf-poc/dev"
     },
     "resources": [
         {
@@ -118,6 +119,33 @@
                         "enabled": true,
                         "storageUri": "[reference(resourceId('exportrg', 'Microsoft.Storage/storageAccounts', parameters('diagnosticsStorageAccountName')), '2015-06-15').primaryEndpoints['blob']]"
                     }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('virtualMachineName'), '/CustomScript')]",
+            "apiVersion": "2015-06-15",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.0",
+                "settings": {
+                    "fileUris": [
+                        "concat(variables('extensionFileUriBase'), '/scripts/virtualbox.sh'",
+                        "concat(variables('extensionFileUriBase'), '/scripts/boshcli.sh'",
+                        "concat(variables('extensionFileUriBase'), '/scripts/boshlite.sh'",
+                        "concat(variables('extensionFileUriBase'), '/scripts/cloudfoundry.sh'",
+                        "concat(variables('extensionFileUriBase'), '/scripts/cfcli.sh'",
+                        "concat(variables('extensionFileUriBase'), '/scripts/setup.sh'"
+                    ]
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[concat('bash -l -c \"./setup_env.sh >/root/install.log 2>&1 &\"')]"
                 }
             }
         },
