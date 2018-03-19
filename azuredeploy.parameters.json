@@ -1,0 +1,49 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "value": "boshlitevm"
+        }, 
+        "virtualMachineSize": {
+         "value": "Standard_E4s_v3"
+        },
+        "diskSizeGB": {
+            "value": "64"
+        },
+        "adminUsername": {
+            "value": "sysadmin"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "virtualNetworkName": {
+            "value": "cfnet"
+        },
+        "addressPrefix": {
+            "value": "10.1.0.0/24"
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "subnetPrefix": {
+            "value": "10.1.0.0/24"
+        },
+        "networkSecurityGroupName": {
+            "value": "boshlitensg"
+        },
+        "networkInterfaceName": {
+            "value": "boshlitenic"
+        },
+        "publicIpAddressName": {
+            "value": "boshlitepubip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        }
+    
+    }
+}
