@@ -32,9 +32,6 @@
         "diagnosticsStorageAccountName": {
             "type": "string"
         },
-        "diagnosticsStorageAccountId": {
-            "type": "string"
-        },
         "diagnosticsStorageAccountType": {
             "type": "string"
         },
