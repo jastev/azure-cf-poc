@@ -33,10 +33,10 @@ function boshlite_addroute() {
 
 function boshlite_getcredentials() {
   export BOSH_CLIENT=admin
-  export BOSH_CLIENT_SECRET=`bosh int $1/$2/creds.yml --path /admin_password`
+  export BOSH_CLIENT_SECRET=`bosh -n int $1/$2/creds.yml --path /admin_password`
 }
 
 function boshlite_aliasenv() {
-  bosh -n alias-env $2 -e 192.168.50.6 --ca-cert <(bosh int $1/$2/creds.yml --path /director_ssl/ca)
+  bosh -n alias-env $2 -e 192.168.50.6 --ca-cert <(bosh -n int $1/$2/creds.yml --path /director_ssl/ca)
 }
 
