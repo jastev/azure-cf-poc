@@ -12,7 +12,7 @@ function boshlite_install() {
 
   echo "Deploying BOSH Director"
   mkdir -p $2
-  bosh -n create-env $1/bosh-deployment/bosh.yml \
+  bosh -n --config ./bosh.config create-env $1/bosh-deployment/bosh.yml \
     --state $2/$3/state.json \
     -o $1/bosh-deployment/virtualbox/cpi.yml \
     -o $1/bosh-deployment/virtualbox/outbound-network.yml \
@@ -33,10 +33,10 @@ function boshlite_addroute() {
 
 function boshlite_getcredentials() {
   export BOSH_CLIENT=admin
-  export BOSH_CLIENT_SECRET=`bosh -n int $1/$2/creds.yml --path /admin_password`
+  export BOSH_CLIENT_SECRET=`bosh -n --config ./bosh.config int $1/$2/creds.yml --path /admin_password`
 }
 
 function boshlite_aliasenv() {
-  bosh -n alias-env $2 -e 192.168.50.6 --ca-cert <(bosh -n int $1/$2/creds.yml --path /director_ssl/ca)
+  bosh -n --config ./bosh.config alias-env $2 -e 192.168.50.6 --ca-cert <(bosh -n --config ./bosh.config int $1/$2/creds.yml --path /director_ssl/ca)
 }
 
