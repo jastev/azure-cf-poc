@@ -3,11 +3,14 @@
 BOSHLITE_REPO=https://github.com/cloudfoundry/bosh-deployment
 
 function boshlite_install() {
+  echo "Installing ruby"
   sudo apt-get install -y ruby
 
+  echo "Cloning bosh-deployment"
   mkdir -p $1/bosh-deployment
   git clone $BOSHLITE_REPO $1/bosh-deployment
 
+  echo "Deploying BOSH Director"
   mkdir -p $2
   bosh -n create-env $1/bosh-deployment/bosh.yml \
     --state $2/$3/state.json \

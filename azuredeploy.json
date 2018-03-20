@@ -57,7 +57,7 @@
     "variables": {
         "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
-        "extensionFileUriBase": "https://raw.githubusercontent.com/jastev/azure-cf-poc/dev/"
+        "extensionFileUriBase": "https://raw.githubusercontent.com/jastev/azure-cf-poc/debug-script/"
     },
     "resources": [
         {
