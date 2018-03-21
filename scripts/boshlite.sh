@@ -10,9 +10,13 @@ function boshlite_install() {
   mkdir -p $1/bosh-deployment
   git clone $BOSHLITE_REPO $1/bosh-deployment
 
+  echo "---- ENV ---"
+  env
+  echo "-----------"
+
   echo "Deploying BOSH Director"
   mkdir -p $2
-  bosh -n --config ./bosh.config create-env $1/bosh-deployment/bosh.yml \
+  BOSH_LOG_LEVEL=debug bosh -n --config create-env $1/bosh-deployment/bosh.yml \
     --state $2/$3/state.json \
     -o $1/bosh-deployment/virtualbox/cpi.yml \
     -o $1/bosh-deployment/virtualbox/outbound-network.yml \
