@@ -6,7 +6,7 @@
             "value": "boshlitevm"
         }, 
         "virtualMachineSize": {
-         "value": "Standard_E4s_v3"
+            "value": "Standard_E4s_v3"
         },
         "diskSizeGB": {
             "value": "64"
@@ -44,6 +44,5 @@
         "publicIpAddressSku": {
             "value": "Basic"
         }
-    
     }
 }

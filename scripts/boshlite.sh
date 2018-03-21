@@ -17,7 +17,7 @@ function boshlite_install() {
   echo "Deploying BOSH Director"
   mkdir -p $2
   export BOSH_LOG_LEVEL=debug
-  bosh -n --config create-env $1/bosh-deployment/bosh.yml \
+  bosh -n create-env $1/bosh-deployment/bosh.yml \
     --state $2/$3/state.json \
     -o $1/bosh-deployment/virtualbox/cpi.yml \
     -o $1/bosh-deployment/virtualbox/outbound-network.yml \
