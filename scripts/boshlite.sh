@@ -10,7 +10,7 @@ function boshlite_install() {
   mkdir -p $1/bosh-deployment
   git clone $BOSHLITE_REPO $1/bosh-deployment
 
-  export TMPDIR=/tmp
+  export HOME=/root
 
   echo "---- ENV ---"
   env
