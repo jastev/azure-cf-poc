@@ -11,9 +11,10 @@ function boshlite_clonerepo() {
   git clone $BOSHLITE_REPO $1/bosh-deployment
 }
 
-function boshlite_changevmparams() {
+function boshlite_changeparams() {
   sed -i -- 's/cpus: 2/cpus: 6/' $1/bosh-deployment/virtualbox/cpi.yml
   sed -i -- 's/memory: 4096/memory: 30720/' $1/bosh-deployment/virtualbox/cpi.yml
+  sed -i -- 's/workers: 2/workers: 6/' $1/bosh-deployment/virtualbox/cloud-config.yml
 }
 
 function boshlite_install() {
