@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-WORKSPACE_PATH=/root/bosh-lite/workspace
-BOSH_DEPLOYMENTS_PATH=/root/bosh-lite/deployments
+HOME=/root
+WORKSPACE_PATH=$HOME/bosh-lite/workspace
+BOSH_DEPLOYMENTS_PATH=$HOME/bosh-lite/deployments
 BOSH_ENV=virtualbox
 
 source virtualbox.sh
@@ -11,6 +12,9 @@ source boshcli.sh
 boshcli_install
 
 source boshlite.sh
+boshlite_installdependencies
+boshlite_clonerepo $WORKSPACE_PATH
+boshlite_changevmparams $WORKSPACE_PATH
 boshlite_install $WORKSPACE_PATH $BOSH_DEPLOYMENTS_PATH $BOSH_ENV
 boshlite_addroute
 boshlite_aliasenv $BOSH_DEPLOYMENTS_PATH $BOSH_ENV
