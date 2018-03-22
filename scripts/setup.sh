@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOME=/root
+export HOME=/root
 WORKSPACE_PATH=$HOME/bosh-lite/workspace
 BOSH_DEPLOYMENTS_PATH=$HOME/bosh-lite/deployments
 BOSH_ENV=virtualbox
