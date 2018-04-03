@@ -14,7 +14,7 @@ boshcli_install
 source boshlite.sh
 boshlite_installdependencies
 boshlite_clonerepo $WORKSPACE_PATH
-boshlite_changevmparams $WORKSPACE_PATH
+boshlite_changeparams $WORKSPACE_PATH
 boshlite_install $WORKSPACE_PATH $BOSH_DEPLOYMENTS_PATH $BOSH_ENV
 boshlite_addroute
 boshlite_aliasenv $BOSH_DEPLOYMENTS_PATH $BOSH_ENV
