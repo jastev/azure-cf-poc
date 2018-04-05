@@ -26,6 +26,8 @@ function boshlite_install() {
     -o $1/bosh-deployment/bosh-lite.yml \
     -o $1/bosh-deployment/bosh-lite-runc.yml \
     -o $1/bosh-deployment/jumpbox-user.yml \
+    -o $1/bosh-deployment/uaa.yml \
+    -o $1/bosh-deployment/credhub.yml \
     --vars-store $2/$3/creds.yml \
     -v director_name="Bosh Lite Director" \
     -v internal_ip=192.168.50.6 \
